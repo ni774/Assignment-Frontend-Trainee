@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import AddWidgetButton from "./AddWidgetButton";
 
-// Register the required Chart.js components
+// Register 
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -22,7 +22,7 @@ ChartJS.register(
   LinearScale
 );
 
-function Widget({ title, data, searchKeywords }) {
+function Widget({ title, data, searchKeywords, setOpenAddWidget }) {
   const chartRefs = useRef([]);
   console.log("empdata", data)
   // const [EmpData, setEpmData] = useState(data);
@@ -40,25 +40,8 @@ function Widget({ title, data, searchKeywords }) {
     };
   }, []);
 
-  const temData = {
-    labels: ["black", "Blue", "Yellow"],
-    chartType: "bar",
-    datasets: [
-      {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(0, 0, 0)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  };
-
   return (
-    <div>
+    <div className="font-light">
       <h2>{title}</h2>
       <div className="row flex flex-nowrap overflow-x-auto">
         {/* Array.from({ length: 10 }). */}
@@ -88,7 +71,7 @@ function Widget({ title, data, searchKeywords }) {
                     // Save reference to the chart instance
                     if (chart) {
                       if (chartRefs.current[i]) {
-                        chartRefs.current[i].destroy(); // Destroy previous instance
+                        chartRefs.current[i].destroy();
                       }
                       chartRefs.current[i] = chart.chartInstance;
                     }
@@ -102,7 +85,7 @@ function Widget({ title, data, searchKeywords }) {
         {/* add custom widget */}
         {searchKeywords.length === 0 ? (
           <div className="flex flex-shrink-0 w-[400px] h-[200px]  border-2 border-[#CCCCCC] rounded-md m-2 bg-gray-50">
-            <span className="h-max m-auto">
+            <span onClick={()=>setOpenAddWidget(true)} className="h-max m-auto">
               <AddWidgetButton />
             </span>
           </div>

@@ -9,7 +9,7 @@ function Search({searchKeywords, setSearchKeywords}) {
             <SearchOutlinedIcon />
           </span>
           <input
-            className="border border-[#CCCCCC] w-[250px] pl-[25px] bg-sky-200"
+            className="border-2 border-[#CCCCCC] w-[250px] rounded-md pl-[25px] bg-sky-200"
             type="text"
             name="search"
             placeholder="Search..."

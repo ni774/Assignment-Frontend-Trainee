@@ -25,8 +25,8 @@ export default function NewWidgets({ openAddWidget, setOpenAddWidget, wholeData,
     const notify = () => toast.success("New Widget created");
     const handleSave = () => {
         setWholeData(prevData => {
-            const updatedData = [...prevData]; // Create a shallow copy of the array
-            updatedData[newWidgets] = [...updatedData[newWidgets], tempData]; // Append the new data immutably
+            const updatedData = [...prevData]; 
+            updatedData[newWidgets] = [...updatedData[newWidgets], tempData]; 
             return updatedData;
         });
         notify();

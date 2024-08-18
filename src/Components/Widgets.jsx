@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Data from '../data';
 import Widget from './Widget';
 
-function Widgets({ searchKeywords, wholeData }) {
+function Widgets({ searchKeywords, wholeData, setOpenAddWidget }) {
   const [filteredData, setFilteredData] = useState([]);
   console.log("wholeData", wholeData);
 
@@ -17,7 +17,7 @@ function Widgets({ searchKeywords, wholeData }) {
               )
             )
           )
-          .filter(filteredArray => filteredArray.length > 0); // Remove empty sub-arrays
+          .filter(filteredArray => filteredArray.length > 0);
       };
 
       const filteredData = filterData(Data, searchKeywords);
@@ -34,11 +34,11 @@ function Widgets({ searchKeywords, wholeData }) {
       {searchKeywords.length === 0 ? (
         <div>
           {/* 1st row */}
-          <Widget key={1} title="CSPM Executive Dashboard" data={wholeData[0]} searchKeywords={searchKeywords}/>
+          <Widget key={1} title="CSPM Executive Dashboard" data={wholeData[0]} searchKeywords={searchKeywords} setOpenAddWidget={setOpenAddWidget}/>
           {/* 2nd row */}
-          <Widget key={2} title="CWPP Dashboard" data={wholeData[1]} searchKeywords={searchKeywords}/>
+          <Widget key={2} title="CWPP Dashboard" data={wholeData[1]} searchKeywords={searchKeywords} setOpenAddWidget={setOpenAddWidget}/>
           {/* 3rd row */}
-          <Widget key={3} title="Registry Scan" data={wholeData[2]} searchKeywords={searchKeywords}/>
+          <Widget key={3} title="Registry Scan" data={wholeData[2]} searchKeywords={searchKeywords} />
         </div>
       ) : (
         <div>
