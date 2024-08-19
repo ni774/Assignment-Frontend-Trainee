@@ -1,5 +1,3 @@
-# Assignment-Frontend-Trainee
-Frontend project admin Dashboard to show data in chart form and widgets
 
 # Assignment-Frontend-Trainee
 ## Project Title: Admin Dashboard
